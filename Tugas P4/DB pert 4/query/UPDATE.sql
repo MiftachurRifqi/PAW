@@ -1,0 +1,1 @@
+UPDATE fakultas SET ket = 'aktif'
