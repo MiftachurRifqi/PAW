@@ -27,9 +27,18 @@
     </div>
     <div class="mb-3">
         <label for="prodi_mhs" class="form-label">Prodi:</label>
-        <input type="text" class="form-control" placeholder="Masukkan prodi mhs" name="prodi_mhs">
+        <select class="form-control" name="id_prodi" id="id_prodi">
+            <option value="prodi">---Pilih Prodi---</option>
+            <?php 
+            include "koneksi.php";
+              $query = mysqli_query($koneksi, "SELECT * FROM tbl_prodi");
+              while ($row = mysqli_fetch_array($query)) {
+                echo '<option value="' . $row['id_prodi'] . '">' . $row['nama_prodi'] . '</option>';    
+              }
+            ?>
+            </select>
     </div>
-    <a href="add.php"><button type="submit" class="btn btn-primary">Simpan</button>
+    <a href="save.php"><button type="submit" class="btn btn-primary">Simpan</button>
     </form>
     
 </body>
